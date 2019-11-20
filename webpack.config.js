@@ -1,11 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
 var baseURL = 'https://arbi-hn-test.seata.cn/api-core-service/api/';
+const HtmlWebpackpPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'build.js'
   },
   module: {
@@ -16,7 +17,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },   
+      },
       {
         test: /\.scss$/,
         use: [
@@ -84,6 +85,10 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       },
       'SERVER_BASE': JSON.stringify(baseURL)
+    }),
+    new HtmlWebpackpPlugin({
+      template: './index.html',
+      inject: true, // 自动注入
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
