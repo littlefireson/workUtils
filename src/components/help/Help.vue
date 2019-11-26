@@ -227,7 +227,9 @@ export default {
           // console.log(startTime);
           var timeCha = this.dateDiff(startTime, this.form.date2);
           // days += this.dateDiff(startTime, this.form.date2)
+
           var jiner = timeCha* bj * this.form.persent*1.5 / 36000
+          console.log(`时间差：${timeCha},${bj},${this.form.persent},${jiner}`)
           zongjie +=jiner
           this.list2.push({
             index: `第${i + 1}期`,
@@ -272,12 +274,13 @@ export default {
 
           var riqic = (i == this.form.list.length - 1) ? 0 : this.dateDiff(startTime, this.huanEndTime)
           // days += riqic
-          
-          var lixiweiyue = (i == this.form.list.length - 1) ? 0 : (this.dateDiff(startTime, this.huanEndTime) * bj * this.form.persent / 100 / 360)
+
+          var lixiweiyue = (i == this.form.list.length - 1) ? 0 : (this.dateDiff(startTime, this.huanEndTime) * bj * this.form.persent *1.5/ 100 / 360)
           console.log(this.form.persent)
           zongjie += lixiweiyue
           if (i == (this.form.list.length - 1)) {
             // console.log(this.dateDiff(this.huanEndTime, this.form.date2),lixiHe)
+            console.log(`基数：${lixiHe},开始时间:${startTime},结束时间:${this.form.date2}`)
             var lixiHeLiLv = (lixiHe * this.form.persent*1.5 / 36000 * this.dateDiff(startTime, this.form.date2)).toFixed(2);
             var aa = (parseFloat(lixiHeLiLv) + parseFloat(zongjie)).toFixed(2);
           }
