@@ -275,7 +275,7 @@ export default {
           var riqic = (i == this.form.list.length - 1) ? 0 : this.dateDiff(startTime, this.huanEndTime)
           // days += riqic
 
-          var lixiweiyue = (i == this.form.list.length - 1) ? 0 : (this.dateDiff(startTime, this.huanEndTime) * bj * this.form.persent *1.5/ 100 / 360)
+          var lixiweiyue = (i == this.form.list.length - 1) ? 0 : (this.dateDiff(startTime, this.huanEndTime) * bj * this.form.persent / 100 / 360)
           console.log(this.form.persent)
           zongjie += lixiweiyue
           if (i == (this.form.list.length - 1)) {
